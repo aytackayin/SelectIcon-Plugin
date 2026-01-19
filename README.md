@@ -22,7 +22,9 @@ composer require aytackayin/filament-select-icon
 ```
 
 ### Configuration
-You can publish the config file with:
+By default, the plugin automatically discovers all **Outlined Heroicons** provided by Filament. No configuration is required.
+
+However, if you want to limit the icons or add custom ones, you can publish the config file:
 
 ```bash
 php artisan vendor:publish --tag="filament-select-icon-config"
@@ -33,13 +35,10 @@ This is the contents of the published config file:
 ```php
 <?php
 
-use Filament\Support\Icons\Heroicon;
-
 return [
     'icons' => [
-        'Academic Cap' => Heroicon::OutlinedAcademicCap,
-        'Home' => Heroicon::OutlinedHome,
-        // Add more icons here...
+        // 'Label' => 'heroicon-name',
+        // If left empty, all Outlined Heroicons are discovered automatically.
     ]
 ];
 ```
