@@ -2,7 +2,7 @@
 
 A custom Filament form component that provides a beautiful, grid-based icon picker with a built-in search functionality and custom tooltips.
 
-![SelectIcon Preview](https://raw.githubusercontent.com/aytackayin/filament-select-icon/main/preview.png)
+![SelectIcon Preview](https://github.com/aytackayin/SelectIcon-Plugin/blob/main/preview.png)
 
 ## Features
 
