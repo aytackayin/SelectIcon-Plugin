@@ -4,6 +4,8 @@ namespace AytacKayin\FilamentSelectIcon\Forms\Components;
 
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Concerns\HasOptions;
+use Filament\Support\Icons\Heroicon;
+use Illuminate\Support\Str;
 
 class SelectIcon extends Field
 {
@@ -15,12 +17,23 @@ class SelectIcon extends Field
     {
         parent::setUp();
 
-        $this->options($this->getIconOptions());
+        $this->options(fn() => $this->getIconOptions());
     }
 
     protected function getIconOptions(): array
     {
         $icons = config('select-icon.icons', []);
+
+        if (empty($icons) && class_exists(Heroicon::class)) {
+            foreach (Heroicon::cases() as $case) {
+                // We prefer Outlined icons for pickers by default
+                if (str_starts_with($case->value, 'o-')) {
+                    $label = Str::headline(str_replace('Outlined', '', $case->name));
+                    $icons[$label] = $case->value;
+                }
+            }
+        }
+
         ksort($icons);
 
         $mapped = [];
@@ -31,10 +44,15 @@ class SelectIcon extends Field
                 $value = 'heroicon-' . $value;
             }
 
-            $mapped[$value] = "<div style='display: flex; align-items: center; gap: 8px; white-space: nowrap;'> <div style='width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;'>" . svg($value)->style('width: 20px; height: 20px;')->toHtml() . "</div> <span style='line-height: 1;'>{$label}</span></div>";
+            // Verify icon exists to avoid errors
+            try {
+                $mapped[$value] = "<div style='display: flex; align-items: center; gap: 8px; white-space: nowrap;'> <div style='width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;'>" . svg($value)->style('width: 20px; height: 20px;')->toHtml() . "</div> <span style='line-height: 1;'>{$label}</span></div>";
+            } catch (\Exception $e) {
+                continue;
+            }
         }
 
         return $mapped;
     }
-
 }
+
