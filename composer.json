@@ -1,0 +1,36 @@
+{
+    "name": "aytackayin/filament-select-icon",
+    "description": "A custom Filament form component that provides a beautiful, grid-based icon picker with a built-in search functionality and custom tooltips.",
+    "keywords": [
+        "aytackayin",
+        "laravel",
+        "filament",
+        "select-icon"
+    ],
+    "homepage": "https://github.com/aytackayin/filament-select-icon",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aytaç Kayın",
+            "email": "aytackayin@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^3.0",
+        "spatie/laravel-package-tools": "^1.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "AytacKayin\\FilamentSelectIcon\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AytacKayin\\FilamentSelectIcon\\FilamentSelectIconServiceProvider"
+            ]
+        }
+    }
+}

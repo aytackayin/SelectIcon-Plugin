@@ -15,14 +15,20 @@ A custom Filament form component that provides a beautiful, grid-based icon pick
 
 ## Installation
 
-### 1. Copy the Component
-Copy the following files to your project:
+You can install the package via composer:
 
-- `app/Filament/Forms/Components/SelectIcon.php`
-- `resources/views/filament/forms/components/select-icon.blade.php`
+```bash
+composer require aytackayin/filament-select-icon
+```
 
-### 2. Configuration
-Create a `config/select-icon.php` file and add your supported Heroicons:
+### Configuration
+You can publish the config file with:
+
+```bash
+php artisan vendor:publish --tag="filament-select-icon-config"
+```
+
+This is the contents of the published config file:
 
 ```php
 <?php
@@ -43,7 +49,7 @@ return [
 Simply use the `SelectIcon` component in your Filament form schema:
 
 ```php
-use App\Filament\Forms\Components\SelectIcon;
+use AytacKayin\FilamentSelectIcon\Forms\Components\SelectIcon;
 
 public function form(Form $form): Form
 {

@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Filament\Forms\Components;
+namespace AytacKayin\FilamentSelectIcon\Forms\Components;
 
 use Filament\Forms\Components\Field;
-
 use Filament\Forms\Components\Concerns\HasOptions;
 
 class SelectIcon extends Field
 {
     use HasOptions;
 
-    protected string $view = 'filament.forms.components.select-icon';
+    protected string $view = 'filament-select-icon::filament.forms.components.select-icon';
 
     protected function setUp(): void
     {
@@ -39,4 +38,3 @@ class SelectIcon extends Field
     }
 
 }
-
