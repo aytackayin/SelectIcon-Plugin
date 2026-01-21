@@ -70,4 +70,3 @@ class SelectIcon extends Field
         return $mapped;
     }
 }
-
