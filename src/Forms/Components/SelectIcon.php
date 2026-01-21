@@ -13,6 +13,34 @@ class SelectIcon extends Field
 
     protected string $view = 'filament-select-icon::filament.forms.components.select-icon';
 
+    protected array $extraInputAttributes = [];
+
+    public function extraInputAttributes(array $attributes): static
+    {
+        $this->extraInputAttributes = array_merge($this->extraInputAttributes, $attributes);
+
+        return $this;
+    }
+
+    public function getExtraInputAttributes(): array
+    {
+        return $this->extraInputAttributes;
+    }
+
+    protected array $extraInputAttributes = [];
+
+    public function extraInputAttributes(array $attributes): static
+    {
+        $this->extraInputAttributes = array_merge($this->extraInputAttributes, $attributes);
+
+        return $this;
+    }
+
+    public function getExtraInputAttributes(): array
+    {
+        return $this->extraInputAttributes;
+    }
+
     protected function setUp(): void
     {
         parent::setUp();

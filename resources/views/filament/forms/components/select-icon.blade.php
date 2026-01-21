@@ -113,7 +113,11 @@
         </style>
 
         <!-- Trigger Button -->
-        <button type="button" @click="open = !open" class="fi-btn fi-size-md" style="margin-bottom: 10px;">
+        <button type="button" @click="open = !open" 
+            {{ (new \Illuminate\View\ComponentAttributeBag($field->getExtraInputAttributes()))
+                ->class(['fi-btn fi-size-md'])
+                ->style(['margin-bottom: 10px']) }}>
+
             <span class="flex items-center gap-2 truncate min-h-[24px]">
                 <template x-if="selectedLabel">
                     <div class="flex items-center" x-html="selectedLabel"></div>
